@@ -1,0 +1,68 @@
+% This is file `myCV.sty'.
+% 
+% (c) Nicholas Nelson
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+% 
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{myCV}
+  [2016/10/30 v0.01 LaTeX package for creating a basic CV document]
+
+\RequirePackage{soul}		% for hyphenatable letterspacing in name
+\RequirePackage{titlesec}	% for personalization of titles and headers
+\RequirePackage{array}		% for defining new column types
+\RequirePackage{ragged2e}	% for additional alignment settings
+\RequirePackage{marvosym}	% for scientific and engineering symbols
+\RequirePackage[letterpaper, margin=1in]{geometry} % for margin layout control
+\RequirePackage[T1]{fontenc}	% for font consistency and layout
+\RequirePackage{xparse}		% for Author Highlighting feature
+\RequirePackage{l3regex}	% for Author Highlighting feature
+
+% Stylistic changes to document format
+\setlength\parindent{0pt}		% remove indentation from document
+\renewcommand{\refname}{Publications}	% rename title of References section
+\pagenumbering{gobble}			% remove page numbering for document
+
+% Macros for automatic formatting of specific components of a CV
+\newcommand{\name}[1]{ {\center\huge\textsc{\so{#1}\\}} \vspace{8pt} }
+\titleformat{\section}{\large\bfseries\center\MakeUppercase}{}{0em}{\vspace{-2.5pt}}
+\newcommand\address[3][t]{%
+  \par\smallskip\noindent\parbox[#1]{.5\textwidth}{\raggedright#2}%
+  \parbox[#1]{.5\textwidth}{\raggedleft{#3}}\par\smallskip\vspace{8pt}%
+}
+\newcommand\phone[1]{ {\large\Telefon\hspace{3pt}} {#1} }
+\newcommand\mobile[1]{ {\large\Mobilefone\hspace{3pt}} {#1} }
+\newcommand\email[1]{ {\large\Letter\hspace{3pt}} {#1} }
+\newcommand\web[1]{ {\large\Mundus\hspace{3pt}} {#1} }
+\newcommand\entry[1]{ {#1} {\vspace{12pt}} }
+%\newcolumntype{R}[1]{>{\RaggedLeft\arraybackslash}p{#1}}
+
+% Author Highlighting: authors in \authorslist{} are bolded in Publications section 
+\ExplSyntaxOn
+  \regex_new:N \g_hl_authors_regex
+  \seq_new:N \l_hl_authors_seq
+  \tl_new:N \l_hl_data_tl
+  \NewDocumentCommand{\authorslist}{m}
+   {
+    \seq_set_split:Nnn \l_hl_authors_seq { , } { #1 }
+    \regex_gset:Nx \g_hl_authors_regex
+     { ( \seq_use:Nnnn \l_hl_authors_seq { | } { | } { | } ) }
+   }
+  \cs_generate_variant:Nn \regex_gset:Nn { Nx }
+
+  \cs_set_eq:NN \hl_bibitem:w \bibitem
+  \cs_set:Npn \bibitem #1#2\par
+   {
+    \hl_bibitem:w { #1 }
+    \tl_set:Nn \l_hl_data_tl { #2 }
+    \regex_replace_all:NnN \g_hl_authors_regex { \c{textbf}\cB\{ \1 \cE\} } \l_hl_data_tl
+    \tl_use:N \l_hl_data_tl \par
+   }
+\ExplSyntaxOff
+
+\endinput
+%%
+%% End of file `myCV.sty'.
+
