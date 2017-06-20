@@ -1,137 +1,101 @@
-\documentclass[a4paper, oneside, final, 10pt]{scrartcl}
-\usepackage{myCV}
-\usepackage{garamondx}
-\authorslist{N.~Nelson}
+\documentclass[11pt,a4paper,sans]{moderncv}
 
+%% ModernCV themes
+\moderncvstyle{classic}
+\moderncvicons{awesome}
+\moderncvcolor{blue}
+\renewcommand{\familydefault}{\sfdefault}
+\nopagenumbers{}
+
+%% Character encoding
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%% Adjust the page margins
+\usepackage[scale=0.8]{geometry}
+\recomputelengths                      % required when changes are made to page layout lengths
+
+\fancyfoot{}                            % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}             % page number in "outer" position of footer line
+\fancyfoot[RE,LO]{\footnotesize }       % other info in "inner" position of footer line
+
+%% AMS Symbol and Math sets
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%% Personal data
+\firstname{Nicholas}
+\familyname{Nelson}
+\title{Curriculum Vitae} 
+\address{8231 N. Newman Avenue, Portland, Oregon 97203}{} 
+\mobile{+1~(541)~224~6912} 
+\email{nelsonni@oregonstate.edu} 
+\social[twitter]{nnelson8675}
+\social[github]{nelsonni}
+\homepage{http://oregonstate.edu/$\sim$nelsonni} 
+\photo[64pt][0.4pt]{avatar}
+
+\AfterPreamble{\hypersetup{
+  pdfauthor={Nicholas Nelson},
+  pdftitle={CV for Nicholas Nelson},
+  pdfsubject={Detailed CV for Nicholas},
+  urlcolor=blue,
+}}
+
+%%------------------------------------------------------------------------------
+%% Content
+%%------------------------------------------------------------------------------
 \begin{document}
-
-\name{Nicholas Nelson}
-\address{School of Electrical Engineering \& Computer Science\\
-         Oregon State University\\
-         Corvallis, Oregon 97331 }
-        {\phone{+1 (541) 224-6912} \\
-         \email{nelsonni@oregonstate.edu} \\
-         \web{web.engr.oregonstate.edu/$\sim$nelsonni} }
-\rule{\textwidth}{1pt}
+\makecvtitle
 
 \section{Education}
+\cventry{2015--Current}{Doctorate of Philosophy}{Computer Science}{Oregon State University}{Corvallis, Oregon}{GPA: \textit{3.67}, Concentration: \emph{Software Engineering}, Advisor: \emph{Anita Sarma}}
+%%
+\cventry{2012--2015}{Bachelor of Science}{Computer Science}{Oregon State University}{Corvallis, Oregon}{GPA: \textit{3.35}, Project: \emph{Clang AST Analysis \& Repair} (Sponsor: Garmin AT, Ltd.)}
+\cvlistdoubleitem{Honor Roll, Winter 2015}{Honor Roll, Fall 2014}
+\cvlistdoubleitem{Honor Roll, Spring 2014}{Honor Roll, Winter 2014}
+%%
+\cventry{2006--2008}{Associate of Applied Science}{Computer Information Systems}{Portland Community College}{Portland, Oregon}{GPA: \textit{3.34}}
+\cvlistdoubleitem{President's List, Spring 2008}{Dean's List, Winter 2008}
+\cvlistdoubleitem{Dean's List, Fall 2007}{Dean's List, Winter 2007}
+%%
+\cventry{2006--2008}{Associate of General Studies}{}{Portland Community College}{Portland, Oregon}{GPA: \textit{3.53}}
+%%
+\cventry{1999--2003}{High School Diploma}{}{South Albany High School}{Albany, Oregon}{GPA: \textit{2.93}}
 
-\entry{\textit{Doctor of Philosophy}, Computer Science \\ 
-Oregon State University, Corvallis, Oregon \hfill September 2015 -- Present \\ 
-Concentration: Software Engineering, Advisor: Anita Sarma \\
-GPA 3.70} 
-
-\entry{\textit{Bachelor of Science}, Computer Science \\ 
-Oregon State University, Corvallis, Oregon \hfill September 2015 \\
-Senior Project: Clang AST Analysis \& Repair, Sponsor: Garmin AT, Ltd. \\
-GPA 3.35}
-
-\entry{\textit{Associate of Applied Science}, Computer Information Systems \\ 
-Portland Community College, Portland, Oregon \hfill December 2008 \\
-GPA 3.34}
-
-\entry{\textit{Associate of General Studies} \\ 
-Portland Community College, Portland, Oregon \hfill June 2008 \\
-GPA 3.53}
+%% A publications list
+\nocite{*}
+\bibliographystyle{cv}
+\bibliography{publications} % a bibtex file containing the list of publications
 
 \section{Professional Experience}
+\cventry{2015--Current}{Graduate Research Assistant (GRA)}{}{Oregon State University}{Corvallis, Oregon}{Advisor: \emph{Anita Sarma}}
+\cventry{2015--Current}{Graduate Teaching Assistant (GTA)}{}{Oregon State University}{Corvallis, Oregon}{Courses: \emph{CS361: Software Engineering I (Winter 2016, Winter 2017)}}
+\cventry{2014--2015}{Undergraduate Research Assistant}{}{Oregon State University}{Corvallis, Oregon}{Advisor: \emph{Danny Dig}}
+\cventry{2013--2014}{Undergraduate Teaching Assistant}{}{Oregon State University}{Corvallis, Oregon}{Courses: \emph{CS160: Computer Science Orientation, CS161: Introduction to Computer Science I, CS162: Introduction to Computer Science II}}
+\cventry{2013}{Process Engineering Intern}{Inkjet High-speed Product Solutions (IHPS) Division}{Hewlett Packard Enterprise}{Corvallis, Oregon}{Project: \emph{IHPS Web Press Consumables Warranty Tracking System}}
+\cventry{2010--2012}{System Analyst I}{Information Services Division}{Samaritan Health Services}{Corvallis, Oregon}{}
+\cventry{2008--2010}{Help Desk Analyst}{Information Services Division}{Samaritan Health Services}{Corvallis, Oregon}{}
+\cventry{2007--2008}{UNIX Server Operations Intern}{Software and Services Group}{Intel Corporation}{Hillsboro, Oregon}{}
+\cventry{2007}{Engineering Computing Support Intern}{Software and Services Group}{Intel Corporation}{Hillsboro, Oregon}{}
 
-\entry{\textit{Graduate Research Assistant} \\
-Oregon State University \hfill September 2015 -- Present \\
-School of Electrical Engineering \& Computer Science}
-
-\entry{\textit{Graduate Teaching Assistant} \\
-Oregon State University \hfill January--March 2016, 2017 \\
-School of Electrical Engineering \& Computer Science}
-
-\entry{\textit{Undergraduate Research Assistant} \\
-Oregon State University \hfill April 2014 -- August 2015 \\
-School of Electrical Engineering \& Computer Science \\
-Advisor: Danny Dig}
-
-\entry{\textit{Undergraduate Teaching Assistant} \\
-Oregon State University \hfill September 2013 -- June 2014 \\
-School of Electrical Engineering \& Computer Science}
-
-\entry{\textit{Process Engineering Intern} \\
-Hewlett Packard Enterprise \hfill June -- September 2013 \\
-Inkjet High-speed Product Solutions (IHPS) Division \\
-Project: IHPS Web Press Consumables Warranty Tracking System}
-
-\entry{\textit{Systems Analyst} \\
-Samaritan Health Services \hfill July 2008 -- December 2012 \\
-Information Systems Department}
-
-\entry{\textit{Engineering Computing Support Intern} \\
-Intel Corporation \hfill June 2007 -- July 2008 \\
-Engineering Computing Division}
-
-\nocite{*}
-\bibliography{publications}
-\bibliographystyle{ieeetr}
-\vspace{3pt}
-%\endgroup
-
-\section{Memberships}
-
-\entry{\textit{Student Member}, Association for Computing Machinery (ACM) \hfill 2015 -- Present}
-
-\section{Honors}
-
-\entry{\textit{Honor Roll}, Oregon State University \hfill Winter 2015}
-
-\entry{\textit{Honor Roll}, Oregon State University \hfill Fall 2014}
-
-\entry{\textit{Honor Roll}, Oregon State University \hfill Spring 2014}
-
-\entry{\textit{Honor Roll}, Oregon State University \hfill Winter 2014}
-
-\entry{\textit{President's List}, Portland Community College \hfill Spring 2008}
-
-\entry{\textit{Dean's List}, Portland Community College \hfill Winter 2008}
-
-\entry{\textit{Dean's List}, Portland Community College \hfill Fall 2007}
-
-\entry{\textit{Dean's List}, Portland Community College \hfill Winter 2007}
-
-\section{Community Service}
-
-\entry{\textit{Steward}, Coalition of Graduate Employees Local 6069 (AFT, AFL-CIO) \hfill September 2016 -- Present}
-
-%\entry{\textit{Reviewer}, Symposium on User Interface Software and Technology \hfill UIST'2017}
-
-%\entry{\textit{Reviewer}, International Conference on Mining Software Repositories \hfill MSR'2017}
-
-\entry{\textit{Reviewer}, International Conference on Automated Software Engineering \hfill ASE'2017}
-
-\entry{\textit{Reviewer}, International Conference on Automated Software Engineering \hfill ASE'2015}
-
-\section{Conferences}
-
-\entry{\textit{Attendee}, 24th ACM SIGSOFT International Symposium on the Foundations of Software Engineering\hfill\break Seattle, Washington, USA \hfill FSE 2016}
-
-\entry{\textit{Attendee}, 30th IEEE/ACM International Conference on Automated Software Engineering\hfill\break Lincoln, Nebraska, USA \hfill ASE 2015}
-
-\entry{\textit{Attendee}, 3rd ACM SIGPLAN Systems, Programming, Languages and Applications: Software for Humanity Conference\hfill\break Portland, Oregon, USA \hfill SPLASH 2014}
+\section{Service}
+\cventry{2016--Current}{Steward}{}{Coalition of Graduate Employees -- Local 6069 (AFT, AFL-CIO)}{Corvallis, Oregon}{}
+\cventry{2017}{Reviewer}{}{32nd IEEE/ACM International Conference on Automated Software Engineering (ASE)}{Urbana-Champaign, Illinois}{}
+\cventry{2016}{Attendee}{}{24th ACM SIGSOFT International Symposium on the Foundations of Software Engineering (FSE)}{Seattle, Washington}{}
+\cventry{2015}{Reviewer}{}{30th IEEE/ACM International Conference on Automated Software Engineering (ASE)}{Lincoln, Nebraska}{}
+\cventry{2015}{Attendee}{}{30th IEEE/ACM International Conference on Automated Software Engineering (ASE)}{Lincoln, Nebraska}{}
+\cventry{2014}{Attendee}{}{3rd ACM SIGPLAN Systems, Programming, Languages and Applications: Software for Humanity (SPLASH) Conference}{Portland, Oregon}{}
 
 \section{Coursework}
-
-\entry{CS569 - Empirical Lab Studies of Software Development \hfill Winter 2017}
-
-\entry{CS519 - Research Methods in HCI: Inclusive Design \hfill Fall 2016}
-
-\entry{ST511 - Methods of Data Analysis \hfill Fall 2016}
-
-\entry{CS569 - Empirical Methods of Software Engineering \hfill Spring 2016}
-
-\entry{CS569 - Static Analysis and Model Checking for Dynamic Analysis \hfill Spring 2016}
-
-\entry{CS519 - Sensemaking in Software Development \hfill Winter 2016}
-
-\entry{CS581 - Programming Languages II \hfill Winter 2016}
-
-\entry{CS561 - Software Engineering I \hfill Fall 2015}
-
-\entry{CS589 - Programming Languages I \hfill Fall 2015}
+\cventry{Winter 2017}{CS569: Empirical Lab Studies of Software Development}{}{Oregon State University}{}{Professor: \emph{Anita Sarma}}
+\cventry{Fall 2016}{CS519: Research Methods in HCI: Inclusive Design}{}{Oregon State University}{}{Professor: \emph{Margaret Burnett}}
+\cventry{}{ST511: Methods of Data Analysis}{}{Oregon State University}{}{Professor: \emph{Lisa Madsen}}
+\cventry{Spring 2016}{CS569: Empirical Methods of Software Engineering}{}{Oregon State University}{}{Professor: \emph{Anita Sarma}}
+\cventry{}{CS569: Static Analysis and Model Checking for Dynamic Analysis}{}{Oregon State University}{}{Professor: \emph{Alex Groce}}
+\cventry{Winter 2016}{CS519: Sensemaking in Software Development}{}{Oregon State University}{}{Professor: \emph{Anita Sarma}}
+\cventry{}{CS581: Programming Languages II}{}{Oregon State University}{}{Professor: \emph{Martin Erwig}}
+\cventry{Fall 2015}{CS561: Software Engineering I}{}{Oregon State University}{}{Professor: \emph{Danny Dig}}
+\cventry{}{CS589: Programming Languages I}{}{Oregon State University}{}{Professor: \emph{Eric Walkingshaw}}
 
 \end{document}
