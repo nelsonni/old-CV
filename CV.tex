@@ -1,106 +1,283 @@
-\documentclass[11pt,a4paper,sans]{moderncv}
+% !TEX TS-program = luatex
+% Awesome Source CV LaTeX Template
+%
+% This template has been downloaded from:
+% https://github.com/darwiin/awesome-neue-latex-cv
+%
+% Author:
+% Christophe Roger (Darwiin)
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 
-%% ModernCV themes
-\moderncvstyle{classic}
-\moderncvicons{awesome}
-\moderncvcolor{blue}
-\renewcommand{\familydefault}{\sfdefault}
-\nopagenumbers{}
+\documentclass[localFont,alternative]{yaac-another-awesome-cv}
+\usepackage{etaremune} % numbering items in reversed orders
 
-%% Character encoding
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+\makeatletter
+\long\def\thebibliography#1{%
+  \section*{\refname}%
+  \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}
+  \settowidth{\dimen0}{\@biblabel{#1}}%
+  \setlength{\dimen2}{\dimen0}%
+  \addtolength{\dimen2}{\labelsep}
+  \sloppy
+  \clubpenalty 4000 
+  \@clubpenalty 
+  \clubpenalty 
+  \widowpenalty 4000
+  \sfcode `\.\@m
+  \renewcommand{\labelenumi}{\@biblabel{\theenumi}} % labels like [3], [2], [1]
+  \begin{etaremune}[labelwidth=\dimen0,leftmargin=\dimen2]\@openbib@code
+}
+\def\endthebibliography{\end{etaremune}}
+\def\@bibitem#1{%
+  \item \if@filesw\immediate\write\@auxout{\string\bibcite{#1}{\the\value{enumi}}}\fi\ignorespaces
+}
+\makeatother
 
-%% Adjust the page margins
-\usepackage[scale=0.8]{geometry}
-\recomputelengths                      % required when changes are made to page layout lengths
+\name{Nicholas}{Nelson}
+\tagline{PhD Student, Computer Science | Software Developer}
+\photo{2.5cm}{avatar}
+\socialinfo{
+    \website{https://oregonstate.edu/\textasciitilde nelsonni}{https://oregonstate.edu/\textasciitilde nelsonni}\\
+	\linkedin{nelsonni1}
+	\github{nelsonni}\\
+	\orcid{http://orcid.org/0000-0002-6365-7152}{0000-0002-6365-7152}
+	\gscholar{z7e_YQoAAAAJ}{Nicholas.Nelson}
+	\dblp{https://dblp.uni-trier.de/pers/hd/n/Nelson_0002:Nicholas}{Nelson\_0002:Nicholas}\\
+	\smartphone{+1 541 224 6912}
+	\email{nelsonni@oregonstate.edu}\\
+	\address{2500 NW Monroe Avenue, Corvallis, Oregon 97331, USA}
+}
 
-\fancyfoot{}                            % clear all footer fields
-\fancyfoot[LE,RO]{\thepage}             % page number in "outer" position of footer line
-\fancyfoot[RE,LO]{\footnotesize }       % other info in "inner" position of footer line
-
-%% AMS Symbol and Math sets
-\usepackage{amssymb}
-\usepackage{amsmath}
-
-%% Personal data
-\firstname{Nicholas}
-\familyname{Nelson}
-\title{Curriculum Vitae} 
-\address{2500 NW Monroe Avenue, Corvallis, Oregon 97331, USA}{} 
-\mobile{+1~(541)~224~6912} 
-\email{nelsonni@oregonstate.edu} 
-\social[twitter]{nnelson8675}
-\social[github]{nelsonni}
-\homepage{http://oregonstate.edu/$\sim$nelsonni} 
-\photo[64pt][0.4pt]{avatar}
-
-\AfterPreamble{\hypersetup{
-  pdfauthor={Nicholas Nelson},
-  pdftitle={CV for Nicholas Nelson},
-  pdfsubject={Detailed CV for Nicholas},
-  urlcolor=blue,
-}}
-
-%%------------------------------------------------------------------------------
-%% Content
-%%------------------------------------------------------------------------------
 \begin{document}
-\makecvtitle
 
-\section{Education}
-\cventry{2015--Current}{Doctorate of Philosophy}{Computer Science}{Oregon State University}{Corvallis, Oregon}{GPA: \textit{3.67}, Concentration: \emph{Software Engineering}, Advisor: \emph{Anita Sarma}}
-%%
-\cventry{2012--2015}{Bachelor of Science}{Computer Science}{Oregon State University}{Corvallis, Oregon}{GPA: \textit{3.35}, Project: \emph{Clang AST Analysis \& Repair} (Sponsor: Garmin AT, Ltd.)}
-\cvlistdoubleitem{Honor Roll, Winter 2015}{Honor Roll, Fall 2014}
-\cvlistdoubleitem{Honor Roll, Spring 2014}{Honor Roll, Winter 2014}
-%%
-\cventry{2006--2008}{Associate of Applied Science}{Computer Information Systems}{Portland Community College}{Portland, Oregon}{GPA: \textit{3.34}}
-\cvlistdoubleitem{President's List, Spring 2008}{Dean's List, Winter 2008}
-\cvlistdoubleitem{Dean's List, Fall 2007}{Dean's List, Winter 2007}
-%%
-\cventry{2006--2008}{Associate of General Studies}{}{Portland Community College}{Portland, Oregon}{GPA: \textit{3.53}}
-%%
-\cventry{1999--2003}{High School Diploma}{}{South Albany High School}{Albany, Oregon}{GPA: \textit{2.93}}
+	\makecvheader
 
-%% A publications list
+	\makecvfooter
+		{\textsc{\selectlanguage{english}\today}}
+		{\textsc{Nicholas Nelson - CV}}
+		{\thepage}
+
+\par{
+PhD student in Computer Science focusing on software engineering (SE), human-computer interaction (HCI), user interfaces, and developer tools.
+I am exploring the effects of human problem-solving processes on the use of integrated development environments (IDEs).
+I also conduct research into software development processes such as merge conflicts, continuous integration (CI), and test-driven development (TDD).
+I have experience using TypeScript, Java, CSS, C/C++, SQL, Python, PHP, JSON, and R.
+}
+\bigskip
+
+%% EDUCATION
+\sectionTitle{Education}{\faMortarBoard}
+\begin{scholarship}
+	\scholarshipentry{2015--Current}
+					{\textbf{Ph.D} in Computer Science at Oregon State University (Advisor: Anita Sarma)}
+	\scholarshipentry{2015}
+					{\textbf{B.S.} in Computer Science at Oregon State University (Minor: Business \& Entrepreneurship)}
+	\scholarshipentry{2008}
+					{\textbf{A.S.} in Computer Information Systems at Portland Community College}
+	\scholarshipentry{2008}
+					{\textbf{A.S.} in General Studies at Portland Community College}
+	\scholarshipentry{2003}{\textbf{H.S. Diploma} at South Albany High School}
+\end{scholarship}
+
+%% EMPLOYMENT
+\sectionTitle{Employment}{\faSuitcase}
+\begin{experiences}
+  \experience
+    {Present}       {Graduate Research \& Teaching Assistant}{Oregon State University}{USA}
+    {September 2015}{
+                      \begin{itemize}
+                        \item Developed architecture and platform for a highly-configurable context-oriented IDE.
+                        \item Conducted empirical research into cognitive processes of problem-solving and context management during software development.
+                        \item Conducted research into developer perceptions of software merge conflict processes and tools.
+                        \item Developed IntelliJ Idea plugin to analyze and refactor Android Java code written for API 6/7 security to use API 8 runtime permissions.
+                        \item Assisted with research into developer perceptions of Continuous Integration (CI) practices and tools. 
+                        \item Reviewed submitted manuscripts for prominent software engineering conferences.                                        
+                      \end{itemize}
+                    }
+    {Typescript,Javascript,jQuery,CSS,NodeJS,Atom,LaTeX,IntelliJ Idea,Git,Maven,Gradle,Groovy,Android Studio,Android 8 API,TravisCI,Jenkins,JSON,R,RStudio,Haskell,Idris,Prolog}
+  \emptySeparator
+  \experience
+    {September 2015}{Undergraduate Research Assistant}{Oregon State University}{USA}
+    {March 2014}    {
+                      \begin{itemize}
+                        \item Member of Change-Oriented Programming Environment (COPE) research group.                       
+                        \item Assisted with research into predictive code analysis and visualization of Test-Driven Development (TDD) developer processes.    
+                      \end{itemize}
+                    }
+    {Java,IntelliJ Idea,Git,Maven,LaTeX,Eclipse,R,RStudio,Ninja Framework,Ruby,Python,XML}
+  \emptySeparator
+  \experience
+    {March 2014}    {Undergraduate Teaching Assistant}{Oregon State University}{USA}
+    {September 2013}{
+                      \begin{itemize}
+                        \item Instructed recitation labs for 30--40 freshman and sophomore computer science students enrolled in Computer Science Orientation (CS160), Introduction to Computer Science I (CS161), and Introduction to Computer Science II (CS162) courses.
+                        \item Developed training and evaluation material for new teaching assistants.                                                                
+                      \end{itemize}
+                    }
+    {Python,Java,C/C++,PyCharm,IntelliJ Idea}
+  \emptySeparator
+  \experience
+    {September 2013}{Process Engineering Intern}{Hewlett Packard Enterprise}{USA}
+    {June 2013}     {
+                      \begin{itemize}
+                        \item Member of PPS - Inkjet High-Speed Production Solutions (IHPS) division.                        
+                        \item Designed, proposed, and implemented warranty processing and validation code for HP Web Press consumable products.                   
+                        \item Integrated file code with HP Web Press Dashboard web applications.                                                                    
+                      \end{itemize}
+                    }
+    {Python,PHP,Perl,Bash}
+  \emptySeparator
+  \experience
+    {December 2012}    {System Analyst I}{Samaritan Health Services}{USA}
+    {April 2010}{
+                      \begin{itemize}
+                        \item Member of Information Services (IS) division.
+                        \item Provided technical support, evaluation, deployment, maintenance, project management, and sunset strategizing for 85 enterprise software applications.                       
+                        \item Maintained primary application support for 30 enterprise applications, including 24/7 support during on-call rotations.                                                                   
+                      \end{itemize}
+                    }
+    {Oracle SQL,MySQL,PostgreSQL,Microsoft Windows Server,Bomgar Remote Access,Schlage Lock Control Software,ViewPAK Boiler System,Microsoft SharePoint,Microsoft Active Directory}
+  \emptySeparator
+  \experience
+    {April 2010}    {Help Desk Analyst}{Samaritan Health Services}{USA}
+    {July 2008}     {
+                      \begin{itemize}
+                        \item Member of Information Services (IS) division.
+                        \item Provided technical support for 7,000 healthcare employees.
+                        \item Maintained a 99\% yearly customer satisfaction rating.
+                        \item Answered 13,000 phone calls and 7,000 support emails per year.                                                                   
+                      \end{itemize}
+                    }
+    {BMC Remedy Service Management,Polycom Teleconference,LogMeIn Remote Control}
+  \emptySeparator
+  \experience
+    {July 2008}    {UNIX Server Operations Intern}{Intel Corporation}{USA}
+    {October 2007}  {
+                      \begin{itemize}
+                        \item Developed interactive web applications for server systems rack polling and management.
+                        \item Supported 6,000 production and test UNIX/Linux servers in active use by engineers and developers.
+                        \item Maintained operational security for 700 highly secure hardened UNIX/Linux servers co-located in secure global facilities.                                                                   
+                      \end{itemize}
+                    }
+    {ColdFusion,PHP,Java,Python,Perl}
+  \emptySeparator
+  \experience
+    {October 2007}  {Engineering Computing Support Intern}{Intel Corporation}{USA}
+    {May 2007}      {
+                      \begin{itemize}
+                        \item Provided technical support for 19,000 Engineering and Product Development employees.
+                        \item Supported 160+ enterprise software products across 14 different global sites.
+                        \item Developed SQL queries and reports for weekly and monthly support statistics.
+                      \end{itemize}
+                    }
+    {BMC Remedy Service Management,TrueWindow Remote Access Control,Microsoft Active Directory}
+\end{experiences}
+
+%% PUBLICATIONS
+\sectionTitle{Peer-reviewed Publications}{\faBook}
+\smallskip
+* co-first author.
+\begingroup
+\renewcommand{\section}[2]{}%
 \nocite{*}
-\bibliographystyle{cv}
-\bibliography{publications} % a bibtex file containing the list of publications
+\bibliographystyle{unsrt}
+\bibliography{publications.bib}
+\endgroup
 
-\section{Professional Experience}
-\cventry{2015--Current}{Graduate Research Assistant (GRA)}{}{Oregon State University}{Corvallis, Oregon}{Advisor: \emph{Anita Sarma}}
-\cventry{2015--Current}{Graduate Teaching Assistant (GTA)}{}{Oregon State University}{Corvallis, Oregon}{Courses: \emph{CS361: Software Engineering I (Winter 2016, Winter 2017, Fall 2017)}}
-\cventry{2014--2015}{Undergraduate Research Assistant}{}{Oregon State University}{Corvallis, Oregon}{Advisor: \emph{Danny Dig}}
-\cventry{2013--2014}{Undergraduate Teaching Assistant}{}{Oregon State University}{Corvallis, Oregon}{Courses: \emph{CS160: Computer Science Orientation, CS161: Introduction to Computer Science I, CS162: Introduction to Computer Science II}}
-\cventry{2013}{Process Engineering Intern}{Inkjet High-speed Product Solutions (IHPS) Division}{Hewlett Packard Enterprise}{Corvallis, Oregon}{Project: \emph{IHPS Web Press Consumables Warranty Tracking System}}
-\cventry{2010--2012}{System Analyst I}{Information Services Division}{Samaritan Health Services}{Corvallis, Oregon}{}
-\cventry{2008--2010}{Help Desk Analyst}{Information Services Division}{Samaritan Health Services}{Corvallis, Oregon}{}
-\cventry{2007--2008}{UNIX Server Operations Intern}{Software and Services Group}{Intel Corporation}{Hillsboro, Oregon}{}
-\cventry{2007}{Engineering Computing Support Intern}{Software and Services Group}{Intel Corporation}{Hillsboro, Oregon}{}
+%% LANGUAGES
+\twocolumnsection
+{\sectionTitle{Languages}{\faGlobe}
+\begin{skills}
+	\skill{English}{5}
+	\skill{Spanish}{3}
+	\skill{German}{2}
+	\skill{Mandarin}{1}
+	\skill{Japanese}{1}
+\end{skills}}
+{\sectionTitle{Awards}{\faTrophy}
+\vspace{1em}
+\begin{itemize}
+	\item IEEE TCSE Distinguished Paper Award at ICSME'17
+	\item ACM SIGSOFT Distinguished Paper Award at FSE'17
+	\item Honor Roll at OSU for Winter'15, Fall'14, Winter'14, Spring'14
+	\item President's List at PCC for Spring'08
+	\item Dean's List at PCC for Winter'08, Fall'07, Winter'07
+\end{itemize}
+}
 
-\section{Service}
-\cventry{2016--Current}{Steward}{}{Coalition of Graduate Employees -- Local 6069 (AFT, AFL-CIO)}{Corvallis, Oregon}{}
-\cventry{2017}{Attendee/Presenter}{}{33rd IEEE International Conference on Software Maintenance and Evolution (ICSME)}{Shanghai, China}{}
-\cventry{2017}{Attendee}{}{5th IEEE Working Conference on Software Visualization (VISSOFT)}{Shanghai, China}{}
-\cventry{2017}{Attendee/Presenter}{}{28th Annual Psychology of Programming Interest Group (PPIG) Workshop}{Delft, Netherlands}{}
-\cventry{2017}{Video Game Workshop Lead}{}{2017 ChickTech Corvallis Annual Summer Kickoff Event}{Corvallis, Oregon}{}
-\cventry{2017}{Reviewer}{}{32nd IEEE/ACM International Conference on Automated Software Engineering (ASE)}{Urbana-Champaign, Illinois}{}
-\cventry{2016}{Attendee}{}{24th ACM SIGSOFT International Symposium on the Foundations of Software Engineering (FSE)}{Seattle, Washington}{}
-\cventry{2015}{Reviewer}{}{30th IEEE/ACM International Conference on Automated Software Engineering (ASE)}{Lincoln, Nebraska}{}
-\cventry{2015}{Attendee}{}{30th IEEE/ACM International Conference on Automated Software Engineering (ASE)}{Lincoln, Nebraska}{}
-\cventry{2014}{Attendee}{}{3rd ACM SIGPLAN Systems, Programming, Languages and Applications: Software for Humanity (SPLASH) Conference}{Portland, Oregon}{}
+%% EMPLOYMENT
+\sectionTitle{Service}{\faUser}
+\begin{experiences}
+  \service
+    {2018}    {Reviewer}{33rd IEEE/ACM International Conference on Automated Software Engineering (ASE)}{Montpellier, France}
+  \serviceLong
+    {2016--2018}       {Steward}{Coalition of Graduate Employees Local 6069 (AFT, AFL--CIO)}{USA}
+    {} {
+                        \begin{itemize}
+                          \item Graduate employee representative for Electrical Engineering and Computer Science (EECS).
+                        \end{itemize}
+                     }
+  \serviceLong
+    {2017}{Video Game Workshop Lead}{ChickTech Corvallis}{USA}
+    {}    {
+                      \begin{itemize}
+                        \item Developed instructional material for 2017 ChickTech Corvallis Annual Summer Kickoff Event for 200-300 high school girls interested in science and technology.                          
+                      \end{itemize}
+                    }
+  \service
+    {}    {Reviewer}{32nd IEEE/ACM International Conference on Automated Software Engineering (ASE)}{Urbana-Champaign, Illinois, USA}
+  \service
+    {}    {Reviewer}{30th ACM Symposium on User Interface Software and Technology (UIST)}{Quebec City, Canada}
+  \service
+    {}    {Reviewer}{14th International Conference on Mining Software Repositories (MSR)}{Buenos Aires, Argentina}
+  \service
+    {2015}    {Reviewer}{30th IEEE/ACM International Conference on Automated Software Engineering (ASE)}{Lincoln, Nebraska, USA}
+  \emptySeparator
+\end{experiences}
 
-\section{Coursework}
-\cventry{Fall 2017}{CS515: Algorithms and Data Structures}{}{Oregon State University}{}{Professor: \emph{Amir Nayyeri}}
-\cventry{Winter 2017}{CS569: Empirical Lab Studies of Software Development}{}{Oregon State University}{}{Professor: \emph{Anita Sarma}}
-\cventry{Fall 2016}{CS519: Research Methods in HCI: Inclusive Design}{}{Oregon State University}{}{Professor: \emph{Margaret Burnett}}
-\cventry{}{ST511: Methods of Data Analysis}{}{Oregon State University}{}{Professor: \emph{Lisa Madsen}}
-\cventry{Spring 2016}{CS569: Empirical Methods of Software Engineering}{}{Oregon State University}{}{Professor: \emph{Anita Sarma}}
-\cventry{}{CS569: Static Analysis and Model Checking for Dynamic Analysis}{}{Oregon State University}{}{Professor: \emph{Alex Groce}}
-\cventry{Winter 2016}{CS519: Sensemaking in Software Development}{}{Oregon State University}{}{Professor: \emph{Anita Sarma}}
-\cventry{}{CS581: Programming Languages II}{}{Oregon State University}{}{Professor: \emph{Martin Erwig}}
-\cventry{Fall 2015}{CS561: Software Engineering I}{}{Oregon State University}{}{Professor: \emph{Danny Dig}}
-\cventry{}{CS589: Programming Languages I}{}{Oregon State University}{}{Professor: \emph{Eric Walkingshaw}}
+%% REFERENCES
+\sectionTitle{References}{\faCommentsO}
+
+\begin{references}
+	\reference
+		{Dr. Anita Sarma}
+		{Associate Professor, Computer Science}
+		{Oregon State University}
+		{anita.sarma@oregonstate.edu}
+		{https://web.engr.oregonstate.edu/\textasciitilde sarmaa}
+		{+1 (541) 737-5985}
+	\reference
+		{Dr. André van der Hoek}
+		{Professor \& Department Chair, Informatics}
+		{University of California, Irvine}
+		{andre@ics.uci.edu}
+		{http://www.ics.uci.edu/\textasciitilde andre}
+		{+1 (949) 824-6326}
+    \newline\reference
+        {Dr. Michael Hilton}
+        {Assistant Teaching Professor, Institute for Software Research}
+        {Carnegie Mellon University}
+        {mhilton@cmu.edu}
+        {http://www.cs.cmu.edu/\textasciitilde mhilton}
+        {+1 (619) 933-3451}
+    \reference
+        {Dr. Danny Dig}
+        {Associate Professor, Computer Science}
+        {Oregon State University}
+        {digd@eecs.oregonstate.edu}
+        {https://web.engr.oregonstate.edu/\textasciitilde digd}
+        {+1 (619) 933-3451}
+\end{references}
+
+%	\input{section_competences}				% Section compétence
+%	\input{section_experience_short}		% Section expérience
+%	\input{section_langues}					% Section langues
+%	\input{section_scolarite}				% Section scholarité
+	%\input{section_interets}				% Section intérêts
+%	\input{section_projets}
+%	\input{section_references} 				% Section références
+
 
 \end{document}
