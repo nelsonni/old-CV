@@ -466,6 +466,16 @@
   \\*
 }
 
+\newcommand*\twocolumnsectionright[2]{
+  \begin{minipage}[t]{\dimexpr(\linewidth/3) - 3em}
+    #1
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{\dimexpr(2\linewidth/3) - 3em}
+    #2
+  \end{minipage}
+  }
+
 
 \newcommand*\twocolumnsection[2]{
   \begin{minipage}[t]{\dimexpr(\linewidth/2) - 3em}
@@ -475,7 +485,7 @@
   \begin{minipage}[t]{\dimexpr(\linewidth/2) - 3em}
     #2
   \end{minipage}
-  }
+  }  
 
 % Define the 'references' environment
 \newenvironment{references}{%
